@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+tmpfile="$HOME/.tmux-script"
+rm $tmpfile
+input=$(gum write)
+echo "Writing: $input"
+echo "$input" >>"$HOME/.tmux-script"
+chmod +x "$tmpfile"
+
+session_name=$(gum input --prompt "Session Name: ")
+tmux new-session  -d -s "$session_name"
+tmux send-keys -t "$session_name" "$tmpfile" Enter
