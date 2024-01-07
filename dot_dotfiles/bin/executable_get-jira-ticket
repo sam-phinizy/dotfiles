@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Gets the JIRA ticket number from a string either from stdin or from the first argument
+set -euo pipefail
+
+# if required commands are not installed, exit
+required sed || exit-if-error $? "sed is required to run this script"
+
+if [[ -t 0 ]]; then
+    input=$1
+else
+    read -r input
+fi
+
+required grep || exit-if-error $? "sed is required to run this script"
+sed -E 's~^[^/]+/([^-]+-[^-]+).*~\1~' <<<"$input"

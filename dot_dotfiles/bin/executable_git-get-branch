@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# This script will return the current git branch
+
+# if not a git repo error out
+if ! git rev-parse --is-inside-work-tree &>/dev/null; then
+    echo "Not a git repository"
+    exit 1
+fi
+
+git rev-parse --abbrev-ref HEAD
