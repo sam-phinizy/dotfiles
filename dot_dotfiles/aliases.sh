@@ -23,3 +23,4 @@ alias brew-remove="brew list -1 | \
   --bind q:close \
   --reverse --preview \"brew info {}\" \
   | xargs brew uninstall"
+
