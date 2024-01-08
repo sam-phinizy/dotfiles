@@ -20,6 +20,9 @@ jira-pick () {
 }
 
 jqc () {
+    # Jira Quick Comment
+    # Will take an issue key and quoted string as arguments. If the first argument isn't a valid issue key it will prompt for one.
+    # if the body is empty it'll open $EDITOR
 
     # if the first arg is a valid jira issue key use that else prompt for one
     if [[ $1 =~ ^[A-Z]+-[0-9]+$ ]]; then
