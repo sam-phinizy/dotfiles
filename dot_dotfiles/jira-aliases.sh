@@ -19,7 +19,7 @@ jira-pick () {
     
 }
 
-jqc () {
+j-qc () {
     # Jira Quick Comment
     # Will take an issue key and quoted string as arguments. If the first argument isn't a valid issue key it will prompt for one.
     # if the body is empty it'll open $EDITOR
@@ -37,6 +37,7 @@ jqc () {
 }
 
 j-close () {
+
     # In progress not working will probably need to be a separate 'bin' so it can accept the pipe.
         # if the first arg is a valid jira issue key use that else prompt for one
     if [[ $1 =~ ^[A-Z]+-[0-9]+$ ]]; then
@@ -46,6 +47,6 @@ j-close () {
     fi
 
     JIRA_USER=$(jira me)
-    jira issue transition $JIRA_ISSUE_KEY --action Close
+    jira issue transition $JIRA_ISSUE_KEY  Done
     echo "$JIRA_ISSUE_KEY"
 }
